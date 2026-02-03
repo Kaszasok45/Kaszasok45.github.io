@@ -5,20 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
+    <link rel="stylesheet" href="/CSS/file.css">
 </head>
 
 <body>
-    
-<ul>
-        
-        <li><a href="/">Home</a></li>
-        <li><a href="/Pages/orders.html">Orders</a></li>
-        <li><a href="/Pages/product.html">Product</a></li>
-        <li><a href="/about.html">About</a></li>
-        
-    </ul>
+
+
+<div class="toolbar">
+    <a href="/">Home</a>
+
+    <div class="dropdown" id="menuDropdown">
+        <a href="#" id="menuButton">Menu ▼</a>
+        <div class="dropdown-content" id="dropdownContent">
+            <a href="/Pages/orders.html">Orders</a>
+            <a href="/Pages/product.html">Product</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
+
+    <a href="#">Contact</a>
+</div>
 
     <h1>Orders</h1>
+
+     <script>
+    const dropdown = document.getElementById('menuDropdown');
+    const menuButton = document.getElementById('menuButton');
+    const dropdownContent = document.getElementById('dropdownContent');
+    let hideTimeout;
+    
+    function showDropdown() {
+        clearTimeout(hideTimeout);
+        dropdown.classList.add('show');
+    }
+    
+    function hideDropdown() {
+        hideTimeout = setTimeout(() => {
+            dropdown.classList.remove('show');
+        }, 2000);
+    }
+    
+    menuButton.addEventListener('mouseenter', showDropdown);
+    menuButton.addEventListener('mouseleave', hideDropdown);
+    dropdownContent.addEventListener('mouseenter', showDropdown);
+    dropdownContent.addEventListener('mouseleave', hideDropdown);
+    </script>
 
 </body>
 

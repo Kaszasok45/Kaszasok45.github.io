@@ -5,18 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
+    <link rel="stylesheet" href="CSS/file.css">
 </head>
 
 <body>
 
-    <ul>
+    <div class="toolbar">
+    <a href="/">Home</a>
 
-        <li><a href="/">Home</a></li>
-        <li><a href="/Pages/orders.html">Orders</a></li>
-        <li><a href="/Pages/product.html">Product</a></li>
-        <li><a href="/about.html">About</a></li>
+    <div class="dropdown" id="menuDropdown">
+        <a href="#" id="menuButton">Menu ▼</a>
+        <div class="dropdown-content" id="dropdownContent">
+            <a href="/Pages/orders.html">Orders</a>
+            <a href="/Pages/product.html">Product</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
 
-    </ul>
+    <a href="#">Contact</a>
+</div>
 
     <h1>About</h1>
 
@@ -41,12 +48,12 @@
             <tr>
                 <td>Saturday</td>
                 <td>09:00</td>
-                
+
             </tr>
             <tr>
                 <td>Sunday</td>
                 <td colspan="2">Closed</td>
-               
+
             </tr>
 
         </tbody>
@@ -60,6 +67,31 @@
         </tfoot>
     </table>
 
+    
+    <script>
+    const dropdown = document.getElementById('menuDropdown');
+    const menuButton = document.getElementById('menuButton');
+    const dropdownContent = document.getElementById('dropdownContent');
+    let hideTimeout;
+    
+    function showDropdown() {
+        clearTimeout(hideTimeout);
+        dropdown.classList.add('show');
+    }
+    
+    function hideDropdown() {
+        hideTimeout = setTimeout(() => {
+            dropdown.classList.remove('show');
+        }, 2000);
+    }
+    
+    menuButton.addEventListener('mouseenter', showDropdown);
+    menuButton.addEventListener('mouseleave', hideDropdown);
+    dropdownContent.addEventListener('mouseenter', showDropdown);
+    dropdownContent.addEventListener('mouseleave', hideDropdown);
+    </script>
+    
 </body>
+
 
 </html>
