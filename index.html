@@ -23,8 +23,8 @@
     <a href="#">Contact</a>
 </div>
 
-<div align="center" >
-    <h1>Beci Burger's</h1>
+<div align="center" id="header"  >
+    <h1 style="margin: 0;" >Beci Burger's</h1>
     
 </div>
 
@@ -42,7 +42,7 @@
     function hideDropdown() {
         hideTimeout = setTimeout(() => {
             dropdown.classList.remove('show');
-        }, 2000);
+        }, 500);
     }
 
     menuButton.addEventListener('mouseenter', showDropdown);
