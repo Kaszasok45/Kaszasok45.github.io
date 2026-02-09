@@ -1,15 +1,4 @@
-.burger-bg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    width: 600px;
-    height: 600px;
-    background: url('/images/100af6ec8e90a3d99f53b217e2414878.gif') center/contain no-repeat;
-    filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25));
-    
-}
+/* .burger-bg removed: decorative centered burger removed in favor of full-page background */
 
 @keyframes burgerSpin3D {
     
@@ -20,45 +9,33 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background:
-        linear-gradient(135deg, #f8b500 0%, #ff6f00 100%);
+    background: url('../images/burgers-high-quality-4k-hdr_889056-32306.avif') center/cover no-repeat;
     position: relative;
     overflow-x: hidden;
+
+    background-attachment: fixed;
 }
 
-.burger-bg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    width: 600px;
-    height: 600px;
-    background: url('/images/100af6ec8e90a3d99f53b217e2414878.gif') center/contain no-repeat;
-    filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25));
-}
-
-.burger-bg::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(120deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0.45) 100%);
-    border-radius: 50%;
-    pointer-events: none;
-}
+.burger-bg::after { /* removed */ }
 
 body > * {
     position: relative;
     z-index: 1;
 }
 
-body::before {
+/* body::before overlay removed so the background image displays unmodified */
+
+:root {
+    --bg-overlay: rgba(0,0,0,0.32); /* adjust opacity for readability */
+}
+
+/* subtle dark overlay above the background image but below content */
+body::after {
     content: "";
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    inset: 0;
+    background: var(--bg-overlay);
     pointer-events: none;
-    background: linear-gradient(120deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0.35) 100%);
-    mix-blend-mode: screen;
     z-index: 0;
 }
 
@@ -130,7 +107,7 @@ body > * {
 h1 {
     color: red;
     font-style: italic;
-}
+   }
 
 body {
     margin: 0;
